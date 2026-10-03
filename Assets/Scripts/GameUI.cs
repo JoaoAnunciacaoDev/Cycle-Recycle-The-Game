@@ -29,7 +29,10 @@ public class GameUI : MonoBehaviour
     {
         if (timeLabel != null)
         {
-            timeLabel.text = $"{gameTimer.ElapsedTime:F1}";
+            int minutes = Mathf.FloorToInt(gameTimer.ElapsedTime / 60f);
+            int seconds = Mathf.FloorToInt(gameTimer.ElapsedTime % 60f);
+
+            timeLabel.text = $"{minutes:00}:{seconds:00}";
         }
     }
 
