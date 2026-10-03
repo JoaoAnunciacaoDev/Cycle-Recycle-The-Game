@@ -48,7 +48,6 @@ public class TrashSpawner : MonoBehaviour
 
         trash.SetFallSpeed(GetRandomFallSpeed());
         trash.SetTrashType(randomType);
-        trash.SetGameManager(gameManager);
 
         if (trashConfig != null)
         {

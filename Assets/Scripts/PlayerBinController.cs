@@ -9,6 +9,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     [SerializeField] private TrashConfig trashConfig;
     [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private GameManager gameManager;
 
     private InputSystem_Actions inputActions;
     private bool isDragging;
@@ -147,6 +148,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (trash == null) return;
         if (trash.Type != type) return;
 
+        gameManager.AddScore(1);
         Destroy(trash.gameObject);
     }
 }

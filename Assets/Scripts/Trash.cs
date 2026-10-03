@@ -7,7 +7,6 @@ public class Trash : MonoBehaviour
     [SerializeField] private float fallSpeed = 3f;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Rigidbody2D rb;
-    private GameManager gameManager;
 
     public TrashType Type => type;
 
@@ -17,11 +16,6 @@ public class Trash : MonoBehaviour
             rb.linearVelocity.x, 
             -fallSpeed
         );
-    }
-
-    public void SetGameManager(GameManager gameManager)
-    {
-        this.gameManager = gameManager;
     }
 
     public void SetFallSpeed(float speed)
@@ -39,11 +33,5 @@ public class Trash : MonoBehaviour
         if (this.sr == null) return;
         
         this.sr.color = newColor;
-    }
-
-    private void OnBecameInvisible()
-    {
-        gameManager.TakeDamage(1);
-        Destroy(gameObject);
     }
 }
