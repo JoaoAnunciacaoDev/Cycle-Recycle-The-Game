@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        finalTimeLabel.text = $"Time: {gameTimer.ElapsedTime:0.00}s";
+        int minutes = Mathf.FloorToInt(gameTimer.ElapsedTime / 60f);
+        int seconds = Mathf.FloorToInt(gameTimer.ElapsedTime % 60f);
+
+        finalTimeLabel.text = $"{minutes:00}:{seconds:00}";
         finalScoreLabel.text = $"Score: {currentScore}";
         gameOverPanel.SetActive(true);
 
