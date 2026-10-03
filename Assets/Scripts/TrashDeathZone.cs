@@ -7,7 +7,6 @@ public class TrashDeathZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Trash trash = other.GetComponent<Trash>();
-        Debug.Log("TrashDeathZone: OnTriggerEnter with " + other.name);
 
         if (trash == null) return;
 

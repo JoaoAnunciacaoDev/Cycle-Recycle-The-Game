@@ -16,13 +16,11 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;
-        Debug.Log("Score: " + currentScore);
     }
 
     public void TakeDamage(int damage)
     {
         currentLives = Mathf.Max(currentLives - damage, 0);
-        Debug.Log("Damage, lives: " + currentLives);
 
         if (currentLives == 0)
             GameOver();

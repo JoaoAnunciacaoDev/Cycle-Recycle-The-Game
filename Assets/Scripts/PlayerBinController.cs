@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerBinController : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Collider2D collider2D;
@@ -10,6 +10,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] private TrashConfig trashConfig;
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private RectTransform touchBar;
 
     private InputSystem_Actions inputActions;
     private bool isDragging;
@@ -114,6 +115,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
             UpdateColor();
     }
 
+    public void SetTrashType(TrashType newType)
+    {
+        type = newType;
+        UpdateColor();
+    }
+
     private void UpdateColor()
     {
         if (sr != null && trashConfig != null)
@@ -131,7 +138,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         float minX = -halfWidth + halfObjectWidth;
         float maxX = halfWidth - halfObjectWidth;
 
-        float minY = -halfHeight + halfObjectHeight;
+        Vector3[] corners = new Vector3[4];
+        touchBar.GetWorldCorners(corners);
+
+        float minY = mainCamera.ScreenToWorldPoint(
+            new Vector3(0f, corners[1].y, -mainCamera.transform.position.z)
+        ).y + halfObjectHeight;
         float maxY = halfHeight - halfObjectHeight;
 
         return new Vector3(
