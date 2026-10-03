@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameTimer gameTimer;
+    [SerializeField] private TMPro.TextMeshProUGUI finalTimeLabel;
+    [SerializeField] private TMPro.TextMeshProUGUI finalScoreLabel;
     [SerializeField] private int maxLives = 3;
 
     public int currentLives { get; private set; }
@@ -28,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("Game Over!");
+        finalTimeLabel.text = $"Time: {gameTimer.ElapsedTime:0.00}s";
+        finalScoreLabel.text = $"Score: {currentScore}";
+        gameOverPanel.SetActive(true);
     }
 }
