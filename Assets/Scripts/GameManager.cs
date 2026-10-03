@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -35,5 +36,13 @@ public class GameManager : MonoBehaviour
         finalTimeLabel.text = $"Time: {gameTimer.ElapsedTime:0.00}s";
         finalScoreLabel.text = $"Score: {currentScore}";
         gameOverPanel.SetActive(true);
+
+        Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
