@@ -5,13 +5,10 @@ public class Trash : MonoBehaviour
 {
     [SerializeField] private TrashType type;
     [SerializeField] private float fallSpeed = 3f;
-    private Rigidbody2D rb;
-    public TrashType Type => type;
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Rigidbody2D rb;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    public TrashType Type => type;
 
     private void FixedUpdate()
     {
@@ -24,6 +21,18 @@ public class Trash : MonoBehaviour
     public void SetFallSpeed(float speed)
     {
         rb.linearVelocity = new Vector2(0f, -speed);
+    }
+
+    public void SetTrashType(TrashType type)
+    {
+        this.type = type;
+    }
+
+    public void SetColor(Color newColor)
+    {
+        if (this.sr == null) return;
+        
+        this.sr.color = newColor;
     }
 
     private void OnBecameInvisible()

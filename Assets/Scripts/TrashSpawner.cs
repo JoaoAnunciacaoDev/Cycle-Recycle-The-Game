@@ -4,6 +4,7 @@ public class TrashSpawner : MonoBehaviour
 {
     [SerializeField] private GameTimer gameTimer;
     [SerializeField] private Trash trashPrefab;
+    [SerializeField] private TrashConfig trashConfig;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private float initialSpawnInterval = 2f;
     [SerializeField] private float minimumSpawnInterval = 0.5f;
@@ -42,7 +43,15 @@ public class TrashSpawner : MonoBehaviour
             Quaternion.identity
         );
 
-        trash.SetFallSpeed(GetFallSpeed());
+        TrashType randomType = GetRandomTrashType();
+
+        trash.SetFallSpeed(GetRandomFallSpeed());
+        trash.SetTrashType(randomType);
+
+        if (trashConfig != null)
+        {
+            trash.SetColor(trashConfig.GetColorForType(randomType));
+        }
     }
 
     private float GetSpawnInterval()
@@ -58,7 +67,7 @@ public class TrashSpawner : MonoBehaviour
         );
     }
 
-    private float GetFallSpeed()
+    private float GetRandomFallSpeed()
     {
         float progress = Mathf.Clamp01(
             gameTimer.ElapsedTime / difficultyIncreaseTime
@@ -68,6 +77,14 @@ public class TrashSpawner : MonoBehaviour
             initialFallSpeed,
             maximumFallSpeed,
             progress
+        );
+    }
+
+    private TrashType GetRandomTrashType()
+    {
+        return (TrashType)Random.Range(
+            0,
+            System.Enum.GetValues(typeof(TrashType)).Length
         );
     }
 }

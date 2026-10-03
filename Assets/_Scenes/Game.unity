@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!212 &609334616 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7828036878358257372, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+  m_PrefabInstance: {fileID: 1004763268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1004763268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +137,10 @@ PrefabInstance:
       value: PlayerBin
       objectReference: {fileID: 0}
     - target: {fileID: 2510900463454999616, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 609334616}
+    - target: {fileID: 2510900463454999616, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
@@ -139,6 +148,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1036849812}
+    - target: {fileID: 2510900463454999616, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+      propertyPath: trashConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 04c8128ce9d80514f8a54f4e8075fdfb, type: 2}
     - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.44
@@ -371,10 +384,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrashSpawner
   gameTimer: {fileID: 2113014334}
   trashPrefab: {fileID: 2369274616515577381, guid: b438a4d905e7e3940b4015027c80640d, type: 3}
-  spawnInterval: 2
-  initialSpawnInterval: 2
-  minimumSpawnInterval: 0.5
-  difficultyIncreaseTime: 30
+  trashConfig: {fileID: 11400000, guid: 04c8128ce9d80514f8a54f4e8075fdfb, type: 2}
+  mainCamera: {fileID: 1036849812}
+  initialSpawnInterval: 3
+  minimumSpawnInterval: 1
+  difficultyIncreaseTime: 45
+  horizontalPadding: 0.5
+  initialFallSpeed: 3
+  maximumFallSpeed: 5
 --- !u!1 &2113014332
 GameObject:
   m_ObjectHideFlags: 0

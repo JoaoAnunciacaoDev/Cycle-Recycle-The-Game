@@ -25,6 +25,56 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
+                },
+                {
+                    "name": "SelectPaper",
+                    "type": "Button",
+                    "id": "a17c17a6-4442-4965-987b-e0336f0e5aa8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "SelectPlastic",
+                    "type": "Button",
+                    "id": "3fd26385-1840-4c3f-8ebb-1c46ddb83382",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "SelectGlass",
+                    "type": "Button",
+                    "id": "9311f6d2-0fa7-4b4a-b78e-5369b34a8984",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "SelectMetal",
+                    "type": "Button",
+                    "id": "06afd4b1-4c24-4418-9f49-f59c6d9cae8a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "SelectOrganic",
+                    "type": "Button",
+                    "id": "aa8bd7fb-84e8-49ac-b9d6-c51e519190e6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -47,6 +97,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "PointerPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd27cc53-ff1e-4277-b3a8-9074d008c581",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectPaper",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3664aac3-290c-4834-b6df-d7d12a1f47b4",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectMetal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22af84ec-86ad-49fb-80b2-dae5f17ac8de",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectOrganic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ef2a8e7-650e-4f55-ae7e-f5b2e0f12f53",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectPlastic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b358d57-6f0f-4ce0-8344-deff20bd2cab",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectGlass",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

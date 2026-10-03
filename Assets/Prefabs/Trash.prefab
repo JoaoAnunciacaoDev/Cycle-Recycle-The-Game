@@ -180,3 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c0085ba6bd8b247b44f5a453b4f82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Trash
+  type: 0
+  fallSpeed: 3
+  sr: {fileID: 8829328394086239404}
+  rb: {fileID: 968807291302963895}

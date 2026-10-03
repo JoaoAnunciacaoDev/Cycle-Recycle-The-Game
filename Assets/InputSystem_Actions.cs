@@ -111,6 +111,56 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""SelectPaper"",
+                    ""type"": ""Button"",
+                    ""id"": ""a17c17a6-4442-4965-987b-e0336f0e5aa8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
+                },
+                {
+                    ""name"": ""SelectPlastic"",
+                    ""type"": ""Button"",
+                    ""id"": ""3fd26385-1840-4c3f-8ebb-1c46ddb83382"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
+                },
+                {
+                    ""name"": ""SelectGlass"",
+                    ""type"": ""Button"",
+                    ""id"": ""9311f6d2-0fa7-4b4a-b78e-5369b34a8984"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
+                },
+                {
+                    ""name"": ""SelectMetal"",
+                    ""type"": ""Button"",
+                    ""id"": ""06afd4b1-4c24-4418-9f49-f59c6d9cae8a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
+                },
+                {
+                    ""name"": ""SelectOrganic"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa8bd7fb-84e8-49ac-b9d6-c51e519190e6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -133,6 +183,61 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PointerPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd27cc53-ff1e-4277-b3a8-9074d008c581"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectPaper"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3664aac3-290c-4834-b6df-d7d12a1f47b4"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectMetal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22af84ec-86ad-49fb-80b2-dae5f17ac8de"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectOrganic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ef2a8e7-650e-4f55-ae7e-f5b2e0f12f53"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectPlastic"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b358d57-6f0f-4ce0-8344-deff20bd2cab"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectGlass"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -732,6 +837,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_PointerPosition = m_Player.FindAction("PointerPosition", throwIfNotFound: true);
         m_Player_PointerPress = m_Player.FindAction("PointerPress", throwIfNotFound: true);
+        m_Player_SelectPaper = m_Player.FindAction("SelectPaper", throwIfNotFound: true);
+        m_Player_SelectPlastic = m_Player.FindAction("SelectPlastic", throwIfNotFound: true);
+        m_Player_SelectGlass = m_Player.FindAction("SelectGlass", throwIfNotFound: true);
+        m_Player_SelectMetal = m_Player.FindAction("SelectMetal", throwIfNotFound: true);
+        m_Player_SelectOrganic = m_Player.FindAction("SelectOrganic", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -827,6 +937,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_PointerPosition;
     private readonly InputAction m_Player_PointerPress;
+    private readonly InputAction m_Player_SelectPaper;
+    private readonly InputAction m_Player_SelectPlastic;
+    private readonly InputAction m_Player_SelectGlass;
+    private readonly InputAction m_Player_SelectMetal;
+    private readonly InputAction m_Player_SelectOrganic;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -846,6 +961,26 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/PointerPress".
         /// </summary>
         public InputAction @PointerPress => m_Wrapper.m_Player_PointerPress;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectPaper".
+        /// </summary>
+        public InputAction @SelectPaper => m_Wrapper.m_Player_SelectPaper;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectPlastic".
+        /// </summary>
+        public InputAction @SelectPlastic => m_Wrapper.m_Player_SelectPlastic;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectGlass".
+        /// </summary>
+        public InputAction @SelectGlass => m_Wrapper.m_Player_SelectGlass;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectMetal".
+        /// </summary>
+        public InputAction @SelectMetal => m_Wrapper.m_Player_SelectMetal;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectOrganic".
+        /// </summary>
+        public InputAction @SelectOrganic => m_Wrapper.m_Player_SelectOrganic;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -878,6 +1013,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @PointerPress.started += instance.OnPointerPress;
             @PointerPress.performed += instance.OnPointerPress;
             @PointerPress.canceled += instance.OnPointerPress;
+            @SelectPaper.started += instance.OnSelectPaper;
+            @SelectPaper.performed += instance.OnSelectPaper;
+            @SelectPaper.canceled += instance.OnSelectPaper;
+            @SelectPlastic.started += instance.OnSelectPlastic;
+            @SelectPlastic.performed += instance.OnSelectPlastic;
+            @SelectPlastic.canceled += instance.OnSelectPlastic;
+            @SelectGlass.started += instance.OnSelectGlass;
+            @SelectGlass.performed += instance.OnSelectGlass;
+            @SelectGlass.canceled += instance.OnSelectGlass;
+            @SelectMetal.started += instance.OnSelectMetal;
+            @SelectMetal.performed += instance.OnSelectMetal;
+            @SelectMetal.canceled += instance.OnSelectMetal;
+            @SelectOrganic.started += instance.OnSelectOrganic;
+            @SelectOrganic.performed += instance.OnSelectOrganic;
+            @SelectOrganic.canceled += instance.OnSelectOrganic;
         }
 
         /// <summary>
@@ -895,6 +1045,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @PointerPress.started -= instance.OnPointerPress;
             @PointerPress.performed -= instance.OnPointerPress;
             @PointerPress.canceled -= instance.OnPointerPress;
+            @SelectPaper.started -= instance.OnSelectPaper;
+            @SelectPaper.performed -= instance.OnSelectPaper;
+            @SelectPaper.canceled -= instance.OnSelectPaper;
+            @SelectPlastic.started -= instance.OnSelectPlastic;
+            @SelectPlastic.performed -= instance.OnSelectPlastic;
+            @SelectPlastic.canceled -= instance.OnSelectPlastic;
+            @SelectGlass.started -= instance.OnSelectGlass;
+            @SelectGlass.performed -= instance.OnSelectGlass;
+            @SelectGlass.canceled -= instance.OnSelectGlass;
+            @SelectMetal.started -= instance.OnSelectMetal;
+            @SelectMetal.performed -= instance.OnSelectMetal;
+            @SelectMetal.canceled -= instance.OnSelectMetal;
+            @SelectOrganic.started -= instance.OnSelectOrganic;
+            @SelectOrganic.performed -= instance.OnSelectOrganic;
+            @SelectOrganic.canceled -= instance.OnSelectOrganic;
         }
 
         /// <summary>
@@ -1209,6 +1374,41 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPointerPress(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectPaper" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectPaper(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectPlastic" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectPlastic(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectGlass" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectGlass(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectMetal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectMetal(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectOrganic" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectOrganic(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
