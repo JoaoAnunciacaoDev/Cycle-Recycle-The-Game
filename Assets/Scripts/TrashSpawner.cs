@@ -3,6 +3,7 @@ using UnityEngine;
 public class TrashSpawner : MonoBehaviour
 {
     [SerializeField] private GameTimer gameTimer;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private Trash trashPrefab;
     [SerializeField] private TrashConfig trashConfig;
     [SerializeField] private Camera mainCamera;
@@ -47,6 +48,7 @@ public class TrashSpawner : MonoBehaviour
 
         trash.SetFallSpeed(GetRandomFallSpeed());
         trash.SetTrashType(randomType);
+        trash.SetGameManager(gameManager);
 
         if (trashConfig != null)
         {
