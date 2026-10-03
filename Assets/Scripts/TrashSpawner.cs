@@ -9,6 +9,8 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] private float minimumSpawnInterval = 0.5f;
     [SerializeField] private float difficultyIncreaseTime = 30f;
     [SerializeField] private float horizontalPadding = 0.5f;
+    [SerializeField] private float initialFallSpeed = 3f;
+    [SerializeField] private float maximumFallSpeed = 5f;
 
     private float timer;
 
@@ -34,20 +36,37 @@ public class TrashSpawner : MonoBehaviour
             transform.position.z
         );
 
-        Instantiate(
+        Trash trash =Instantiate(
             trashPrefab,
             spawnPosition,
             Quaternion.identity
         );
+
+        trash.SetFallSpeed(GetFallSpeed());
     }
 
     private float GetSpawnInterval()
     {
-        float progress = Mathf.Clamp01(gameTimer.ElapsedTime / difficultyIncreaseTime);
+        float progress = Mathf.Clamp01(
+            gameTimer.ElapsedTime / difficultyIncreaseTime
+        );
 
         return Mathf.Lerp(
             initialSpawnInterval,
             minimumSpawnInterval,
+            progress
+        );
+    }
+
+    private float GetFallSpeed()
+    {
+        float progress = Mathf.Clamp01(
+            gameTimer.ElapsedTime / difficultyIncreaseTime
+        );
+
+        return Mathf.Lerp(
+            initialFallSpeed,
+            maximumFallSpeed,
             progress
         );
     }

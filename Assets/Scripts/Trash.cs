@@ -21,6 +21,11 @@ public class Trash : MonoBehaviour
         );
     }
 
+    public void SetFallSpeed(float speed)
+    {
+        rb.linearVelocity = new Vector2(0f, -speed);
+    }
+
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
