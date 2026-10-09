@@ -24,7 +24,7 @@ public class PlayerBinController : MonoBehaviour
 
     private void Start()
     {
-        UpdateColor();
+        UpdateSprite();
     }
 
     private void OnEnable()
@@ -112,19 +112,19 @@ public class PlayerBinController : MonoBehaviour
             typeChanged = true;
         
         if (typeChanged)
-            UpdateColor();
+            UpdateSprite();
     }
 
     public void SetTrashType(TrashType newType)
     {
         type = newType;
-        UpdateColor();
+        UpdateSprite();
     }
 
-    private void UpdateColor()
+    private void UpdateSprite()
     {
         if (sr != null && trashConfig != null)
-            sr.color = trashConfig.GetColorForType(type);
+            sr.sprite = trashConfig.GetBinSpriteForType(type);
     }
 
     private Vector3 ClampToBounds(Vector3 position)
