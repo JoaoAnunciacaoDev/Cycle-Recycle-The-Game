@@ -1871,12 +1871,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 04c8128ce9d80514f8a54f4e8075fdfb, type: 2}
     - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 629
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 942
+      value: 680
       objectReference: {fileID: 0}
     - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1910,17 +1918,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828036878358257372, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4726577024899007655, guid: 7a2d0913e369c914686958493e48615a, type: 3}
     - target: {fileID: 7828036878358257372, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7828036878358257372, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7828036878358257372, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: -1982762533
       objectReference: {fileID: 0}
     - target: {fileID: 7828036878358257372, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_RenderingLayerMask
