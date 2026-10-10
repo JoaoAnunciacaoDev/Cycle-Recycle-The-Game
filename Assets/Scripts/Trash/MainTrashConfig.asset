@@ -16,20 +16,20 @@ MonoBehaviour:
   - trashType: 0
     color: {r: 0, g: 0, b: 1, a: 1}
     binSprite: {fileID: 4726577024899007655, guid: 7a2d0913e369c914686958493e48615a, type: 3}
-    trashSprite: {fileID: 4726577024899007655, guid: 7a2d0913e369c914686958493e48615a, type: 3}
+    trashSprite: {fileID: -8445868971643101934, guid: 338ef47c9bd3cee4eb69d0524cc36ea0, type: 3}
   - trashType: 1
     color: {r: 1, g: 0, b: 0, a: 1}
     binSprite: {fileID: 3743079348930213073, guid: 4cd2171798fbfde468d8860190c1d469, type: 3}
-    trashSprite: {fileID: 3743079348930213073, guid: 4cd2171798fbfde468d8860190c1d469, type: 3}
+    trashSprite: {fileID: -2328326524008958691, guid: 51218d6ff87253d4aa808f5355cd7401, type: 3}
   - trashType: 2
     color: {r: 0, g: 0.5019608, b: 0, a: 1}
     binSprite: {fileID: -3157441750430694548, guid: a8ebed18da51de94f8ae4790399f4a41, type: 3}
-    trashSprite: {fileID: -3157441750430694548, guid: a8ebed18da51de94f8ae4790399f4a41, type: 3}
+    trashSprite: {fileID: -955302881811656046, guid: a1fde891ec428a64da332e1a65db4c5a, type: 3}
   - trashType: 3
     color: {r: 1, g: 1, b: 0, a: 1}
     binSprite: {fileID: -2580222129446931044, guid: 2878976024588474d9e33c8b6f21e58f, type: 3}
-    trashSprite: {fileID: -2580222129446931044, guid: 2878976024588474d9e33c8b6f21e58f, type: 3}
+    trashSprite: {fileID: 5877910259723816269, guid: 9e34eb4203e92764e9b82e2d6c707936, type: 3}
   - trashType: 4
     color: {r: 0.3529412, g: 0.22745098, b: 0.13333334, a: 1}
     binSprite: {fileID: 52407966074583700, guid: ad75a694f336c5448bf12c4d058b3b7e, type: 3}
-    trashSprite: {fileID: 52407966074583700, guid: ad75a694f336c5448bf12c4d058b3b7e, type: 3}
+    trashSprite: {fileID: 6794420136928041816, guid: 68e5e7f4ca1782e40823fcd53429caa2, type: 3}

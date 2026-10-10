@@ -1855,6 +1855,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2510900463454999616, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
+      propertyPath: topBar
+      value: 
+      objectReference: {fileID: 1634560978}
+    - target: {fileID: 2510900463454999616, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: touchBar
       value: 
       objectReference: {fileID: 533338073}
@@ -1880,11 +1884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.39
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3827803729559672735, guid: e8dd2cdb330439047ae72e61d93b1bae, type: 3}
       propertyPath: m_LocalPosition.z

@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1982762533
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3743079348930213073, guid: 4cd2171798fbfde468d8860190c1d469, type: 3}
   m_Color: {r: 0.22523056, g: 0.8415094, b: 0.061922297, a: 1}
@@ -184,3 +184,5 @@ MonoBehaviour:
   fallSpeed: 3
   sr: {fileID: 8829328394086239404}
   rb: {fileID: 968807291302963895}
+  minRotationSpeed: 40
+  maxRotationSpeed: 120

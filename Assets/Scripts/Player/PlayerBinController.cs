@@ -11,10 +11,25 @@ public class PlayerBinController : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private RectTransform touchBar;
+    [SerializeField] private RectTransform topBar;
+
+    [Header("Tilt / Inclinação")]
+    [SerializeField] private float maxTiltAngle = 15f;
+    [SerializeField] private float tiltSensitivity = 8f;
+    [SerializeField] private float tiltSmoothSpeed = 12f;
+
+    [Header("Squash and Stretch")]
+    [SerializeField] private float squashDuration = 0.22f;
+    [SerializeField] private Vector3 squashScale = new Vector3(1.25f, 0.75f, 1f);
+    [SerializeField] private Vector3 stretchScale = new Vector3(0.9f, 1.15f, 1f);
 
     private InputSystem_Actions inputActions;
     private bool isDragging;
     private Vector3 targetPosition;
+    private Vector3 initialScale;
+    private float targetTiltAngle;
+    private Coroutine squashCoroutine;
+
     public TrashType Type => type;   
 
     private void Awake()
@@ -29,6 +44,7 @@ public class PlayerBinController : MonoBehaviour
 
     private void Start()
     {
+        initialScale = transform.localScale;
         UpdateSprite();
     }
 
@@ -71,19 +87,33 @@ public class PlayerBinController : MonoBehaviour
             }
         }
 
-        if (!isDragging)
-            return;
+        if (isDragging)
+        {
+            targetPosition = ClampToBounds(new Vector3(
+                worldPosition.x,
+                worldPosition.y,
+                transform.position.z
+            ));
 
-        targetPosition = ClampToBounds(new Vector3(
-            worldPosition.x,
-            worldPosition.y,
-            transform.position.z
-        ));
+            transform.position = Vector3.Lerp(
+                transform.position,
+                targetPosition,
+                smoothSpeed * Time.deltaTime
+            );
 
-        transform.position = Vector3.Lerp(
-            transform.position,
-            targetPosition,
-            smoothSpeed * Time.deltaTime
+            float deltaX = targetPosition.x - transform.position.x;
+            targetTiltAngle = Mathf.Clamp(-deltaX * tiltSensitivity, -maxTiltAngle, maxTiltAngle);
+        }
+        else
+        {
+            targetTiltAngle = 0f;
+        }
+
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetTiltAngle);
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            targetRotation,
+            tiltSmoothSpeed * Time.deltaTime
         );
 
         if (inputActions.Player.PointerPress.WasReleasedThisFrame())
@@ -153,13 +183,35 @@ public class PlayerBinController : MonoBehaviour
         float minX = -halfWidth + halfObjectWidth;
         float maxX = halfWidth - halfObjectWidth;
 
-        Vector3[] corners = new Vector3[4];
-        touchBar.GetWorldCorners(corners);
+        float minY;
 
-        float minY = mainCamera.ScreenToWorldPoint(
-            new Vector3(0f, corners[1].y, -mainCamera.transform.position.z)
-        ).y + halfObjectHeight;
-        float maxY = halfHeight - halfObjectHeight;
+        if (touchBar != null)
+        {
+            Vector3[] bottomCorners = new Vector3[4];
+            touchBar.GetWorldCorners(bottomCorners);
+            minY = mainCamera.ScreenToWorldPoint(
+                new Vector3(0f, bottomCorners[1].y, -mainCamera.transform.position.z)
+            ).y + halfObjectHeight;
+        }
+        else
+        {
+            minY = -halfHeight + halfObjectHeight;
+        }
+
+        float maxY;
+
+        if (topBar != null)
+        {
+            Vector3[] topCorners = new Vector3[4];
+            topBar.GetWorldCorners(topCorners);
+            maxY = mainCamera.ScreenToWorldPoint(
+                new Vector3(0f, topCorners[0].y, -mainCamera.transform.position.z)
+            ).y - halfObjectHeight;
+        }
+        else
+        {
+            maxY = halfHeight - halfObjectHeight;
+        }
 
         return new Vector3(
             Mathf.Clamp(position.x, minX, maxX),
@@ -168,7 +220,7 @@ public class PlayerBinController : MonoBehaviour
         );
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void TryCollectTrash(Collider2D other)
     {
         Trash trash = other.GetComponent<Trash>();
 
@@ -176,6 +228,72 @@ public class PlayerBinController : MonoBehaviour
         if (trash.Type != type) return;
 
         gameManager.AddScore(1);
+        PlaySquashAndStretch();
         Destroy(trash.gameObject);
+}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        TryCollectTrash(other);
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        TryCollectTrash(other);
+    }
+
+    private void PlaySquashAndStretch()
+    {
+        if (squashCoroutine != null)
+            StopCoroutine(squashCoroutine);
+
+        squashCoroutine = StartCoroutine(SquashAndStretchRoutine());
+    }
+
+    private System.Collections.IEnumerator SquashAndStretchRoutine()
+    {
+        Vector3 targetSquash = new Vector3(
+            initialScale.x * squashScale.x,
+            initialScale.y * squashScale.y,
+            initialScale.z
+        );
+
+        Vector3 targetStretch = new Vector3(
+            initialScale.x * stretchScale.x,
+            initialScale.y * stretchScale.y,
+            initialScale.z
+        );
+
+        float halfDuration = squashDuration * 0.5f;
+        float elapsed = 0f;
+
+        while (elapsed < halfDuration * 0.5f)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / (halfDuration * 0.5f);
+            transform.localScale = Vector3.Lerp(initialScale, targetSquash, t);
+            yield return null;
+        }
+
+        elapsed = 0f;
+        while (elapsed < halfDuration * 0.5f)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / (halfDuration * 0.5f);
+            transform.localScale = Vector3.Lerp(targetSquash, targetStretch, t);
+            yield return null;
+        }
+
+        elapsed = 0f;
+        while (elapsed < halfDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / halfDuration;
+            transform.localScale = Vector3.Lerp(targetStretch, initialScale, t);
+            yield return null;
+        }
+
+        transform.localScale = initialScale;
+        squashCoroutine = null;
     }
 }

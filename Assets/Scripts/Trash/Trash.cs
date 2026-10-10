@@ -7,7 +7,25 @@ public class Trash : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Rigidbody2D rb;
 
+    [Header("Visual Effects")]
+    [SerializeField] private float minRotationSpeed = 40f;
+    [SerializeField] private float maxRotationSpeed = 120f;
+
+    private float rotationSpeed;
+
     public TrashType Type => type;
+
+    private void Start()
+    {
+        float speed = Random.Range(minRotationSpeed, maxRotationSpeed);
+        float direction = Random.value > 0.5f ? 1f : -1f;
+        rotationSpeed = speed * direction;
+    }
+
+    private void Update()
+    {
+        transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+    }
 
     private void FixedUpdate()
     {
