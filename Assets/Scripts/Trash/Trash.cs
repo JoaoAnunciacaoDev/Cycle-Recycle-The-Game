@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Trash : MonoBehaviour
@@ -20,6 +19,7 @@ public class Trash : MonoBehaviour
 
     public void SetFallSpeed(float speed)
     {
+        fallSpeed = speed;
         rb.linearVelocity = new Vector2(0f, -speed);
     }
 
@@ -28,10 +28,18 @@ public class Trash : MonoBehaviour
         this.type = type;
     }
 
-    public void SetColor(Color newColor)
+    public void SetVisuals(Sprite sprite, Color fallbackColor)
     {
-        if (this.sr == null) return;
-        
-        this.sr.color = newColor;
+        if (sr == null) return;
+
+        if (sprite != null)
+        {
+            sr.sprite = sprite;
+            sr.color = Color.white;
+        }
+        else
+        {
+            sr.color = fallbackColor;
+        }
     }
 }

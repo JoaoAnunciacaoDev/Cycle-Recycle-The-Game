@@ -45,13 +45,14 @@ public class TrashSpawner : MonoBehaviour
         );
 
         TrashType randomType = GetRandomTrashType();
-
         trash.SetFallSpeed(GetRandomFallSpeed());
         trash.SetTrashType(randomType);
 
         if (trashConfig != null)
         {
-            trash.SetColor(trashConfig.GetColorForType(randomType));
+            Sprite trashSprite = trashConfig.GetTrashSpriteForType(randomType);
+            Color trashColor = trashConfig.GetColorForType(randomType);
+            trash.SetVisuals(trashSprite, trashColor);
         }
     }
 

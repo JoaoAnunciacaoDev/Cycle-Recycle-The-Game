@@ -527,7 +527,6 @@ GameObject:
   m_Component:
   - component: {fileID: 899932918}
   - component: {fileID: 899932920}
-  - component: {fileID: 899932919}
   m_Layer: 5
   m_Name: ground
   m_TagString: Untagged
@@ -554,21 +553,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &899932919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899932917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0fd48697c4aca41a32ccb2ebc34907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
-  mainCamera: {fileID: 1137023758}
-  offsetMultiplier: 1
-  smoothTime: 0.3
 --- !u!212 &899932920
 SpriteRenderer:
   serializedVersion: 3
@@ -615,7 +599,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 152812701
-  m_SortingLayer: 2
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3878557786174838139, guid: c9e3252b4e855f341a39f1452092d30d, type: 3}
@@ -841,7 +825,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1117834664}
   - component: {fileID: 1117834666}
-  - component: {fileID: 1117834665}
   m_Layer: 5
   m_Name: sky
   m_TagString: Untagged
@@ -868,21 +851,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1117834665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117834663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0fd48697c4aca41a32ccb2ebc34907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
-  mainCamera: {fileID: 1137023758}
-  offsetMultiplier: 1
-  smoothTime: 0.3
 --- !u!212 &1117834666
 SpriteRenderer:
   serializedVersion: 3
@@ -929,7 +897,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 152812701
-  m_SortingLayer: 2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3836954968553550457, guid: 003c2f03781c44242bf8df02559ce446, type: 3}
@@ -1139,7 +1107,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 152812701
-  m_SortingLayer: 2
+  m_SortingLayer: -1
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6705856610700968128, guid: c464652223a9aba4eae4a67a0afac1ce, type: 3}
@@ -1435,8 +1403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuParallax
   mainCamera: {fileID: 1137023758}
-  offsetMultiplier: 10
-  smoothTime: 0.5
+  offsetMultiplier: 0.5
+  smoothTime: 0.3
 --- !u!212 &1803140489
 SpriteRenderer:
   serializedVersion: 3
@@ -1483,7 +1451,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 152812701
-  m_SortingLayer: 2
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8287873616420496286, guid: e76b8f1ae3846424988863ef9cf19774, type: 3}
@@ -1616,7 +1584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2143925641
 RectTransform:
   m_ObjectHideFlags: 0

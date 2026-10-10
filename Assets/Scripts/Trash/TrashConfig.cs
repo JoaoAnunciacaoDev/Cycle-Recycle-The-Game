@@ -16,6 +16,7 @@ public struct TrashData
     public TrashType trashType;
     public Color color;
     public Sprite binSprite;
+    public Sprite trashSprite;
 }
 
 [CreateAssetMenu(fileName = "TrashConfig", menuName = "Game/Trash Config")]
@@ -30,7 +31,16 @@ public class TrashConfig : ScriptableObject
             if (data.trashType == type)
                 return data.binSprite;
         }
+        return null;
+    }
 
+    public Sprite GetTrashSpriteForType(TrashType type)
+    {
+        foreach (var data in trashColors)
+        {
+            if (data.trashType == type)
+                return data.trashSprite;
+        }
         return null;
     }
 
@@ -41,7 +51,6 @@ public class TrashConfig : ScriptableObject
             if (data.trashType == type)
                 return data.color;
         }
-
         return Color.white;
     }
 }

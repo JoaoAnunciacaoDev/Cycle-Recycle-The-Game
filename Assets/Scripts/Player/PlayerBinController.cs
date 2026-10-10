@@ -20,6 +20,11 @@ public class PlayerBinController : MonoBehaviour
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
+
+        if (mainCamera == null) mainCamera = Camera.main;
+        if (sr == null) sr = GetComponent<SpriteRenderer>();
+        if (collider2D == null) collider2D = GetComponent<Collider2D>();
+        if (gameManager == null) gameManager = FindAnyObjectByType<GameManager>();
     }
 
     private void Start()
@@ -92,24 +97,34 @@ public class PlayerBinController : MonoBehaviour
         bool typeChanged = false;
 
         if (inputActions.Player.SelectPaper.WasPressedThisFrame())
+        {
             type = TrashType.Paper;
             typeChanged = true;
-
+        }
+            
         if (inputActions.Player.SelectPlastic.WasPressedThisFrame())
+        {
             type = TrashType.Plastic;
             typeChanged = true;
-
+        }
+            
         if (inputActions.Player.SelectGlass.WasPressedThisFrame())
+        {
             type = TrashType.Glass;
             typeChanged = true;
-
+        }
+            
         if (inputActions.Player.SelectMetal.WasPressedThisFrame())
+        {
             type = TrashType.Metal;
             typeChanged = true;
-
+        }
+            
         if (inputActions.Player.SelectOrganic.WasPressedThisFrame())
+        {
             type = TrashType.Organic;
             typeChanged = true;
+        }
         
         if (typeChanged)
             UpdateSprite();
